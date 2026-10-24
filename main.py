@@ -1,16 +1,30 @@
-# This is a sample Python script.
+"""
+Web Portfolio & Blog — Навчальний веб-проєкт
+Автор: Оржеховський Захар (група КН-2/1)
+"""
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import http.server
+import socketserver
+import webbrowser
+
+PORT = 8000
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def main():
+    print(f"==================================================")
+    print(f"🚀 Запуск локального сервера для проєкту...")
+    print(f"🌐 Адреса: http://localhost:{PORT}")
+    print(f"⏹ Для зупинки натисніть Ctrl+C")
+    print(f"==================================================")
+    
+    handler = http.server.SimpleHTTPRequestHandler
+    with socketserver.TCPServer(("", PORT), handler) as httpd:
+        webbrowser.open(f"http://localhost:{PORT}")
+        try:
+            httpd.serve_forever()
+        except KeyboardInterrupt:
+            print("\nСервер успішно зупинено.")
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == "__main__":
+    main()
