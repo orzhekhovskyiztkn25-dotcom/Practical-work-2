@@ -21,6 +21,24 @@ main {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.contacts ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.contacts li {
+    padding: 6px 0;
+}
+
+.contacts a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.contacts a:hover {
+    text-decoration: underline;
+}
+
 footer {
     margin-top: 20px;
     text-align: center;
